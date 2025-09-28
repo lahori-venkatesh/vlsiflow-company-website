@@ -1,4 +1,4 @@
-// Enhanced JavaScript for Bhavani VLSI Labs
+// Enhanced JavaScript for VLSI Flow
 document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
     const header = document.querySelector('header');

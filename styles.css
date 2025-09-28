@@ -731,7 +731,7 @@ nav ul li a:hover {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
@@ -931,7 +931,7 @@ nav ul li a:hover {
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
@@ -1145,7 +1145,7 @@ nav ul li a:hover {
 .internship-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
@@ -2122,6 +2122,7 @@ footer {
     
     .features-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .director-container {
@@ -2136,6 +2137,7 @@ footer {
     
     .courses-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .course-footer {

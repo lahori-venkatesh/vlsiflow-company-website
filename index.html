@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavani VLSI Labs - Premier VLSI Training & Placement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        'primary-light': '#3b82f6',
+                        'primary-dark': '#1e3a8a',
+                        secondary: '#10b981',
+                        'secondary-light': '#34d399',
+                        'secondary-dark': '#059669',
+                        tertiary: '#f97316',
+                        'tertiary-light': '#fb923c',
+                        'tertiary-dark': '#ea580c',
+                        'text-primary': '#1e293b',
+                        'text-secondary': '#475569',
+                        'text-light': '#64748b'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'poppins': ['Poppins', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-white/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <div class="flex items-center ml-2 lg:ml-4">
+                    <i class="fas fa-microchip text-3xl lg:text-4xl bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent mr-3 lg:mr-4"></i>
+                    <div>
+                        <div class="font-poppins text-xl sm:text-2xl lg:text-3xl font-bold text-primary tracking-tight">VLSI Flow</div>
+                        <div class="text-xs sm:text-sm text-text-light font-medium uppercase tracking-wider">Professional VLSI Training Institute</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex flex-1 justify-center">
+                    <ul class="flex items-center space-x-8 xl:space-x-10">
+                        <li><a href="#home" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            Home
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="#about" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            About
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="#courses" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            Courses
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="#internship" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            Internship
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="#placement" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            Placements
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="#contact" class="text-text-primary font-medium text-sm xl:text-base hover:text-primary transition-colors duration-300 relative group">
+                            Contact
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4 mr-2 lg:mr-4">
+                    <!-- Get Started Button (Desktop) -->
+                    <a href="#contact" class="hidden lg:inline-flex bg-gradient-to-r from-primary to-primary-light text-white px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                        Get Started
+                    </a>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none" id="mobile-menu-toggle">
+                        <span class="w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out"></span>
+                        <span class="w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out"></span>
+                        <span class="w-6 h-0.5 bg-primary transition-all duration-300 ease-in-out"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="lg:hidden fixed inset-0 top-16 bg-white backdrop-blur-xl transform -translate-x-full transition-transform duration-300 ease-in-out z-40" id="mobile-menu">
+            <nav class="flex flex-col items-center justify-start pt-12 space-y-6">
+                <a href="#home" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">Home</a>
+                <a href="#about" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">About</a>
+                <a href="#courses" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">Courses</a>
+                <a href="#internship" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">Internship</a>
+                <a href="#placement" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">Placements</a>
+                <a href="#contact" class="text-text-primary font-semibold text-lg hover:text-primary transition-colors duration-300 py-3 px-6 rounded-lg hover:bg-gradient-to-r hover:from-primary hover:to-primary-light hover:text-white">Contact</a>
+                <a href="#contact" class="mt-6 bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-full font-semibold uppercase tracking-wide shadow-lg">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900/95 via-slate-700/90 to-primary/85" id="home" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-700/90 to-primary/85"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light/10 via-transparent to-secondary/5"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-0">
+            <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center text-center lg:text-left">
+                <!-- Hero Content -->
+                <div class="lg:col-span-3 space-y-6 lg:space-y-8">
+                    <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight">
+                        Master <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-orange-600 bg-clip-text text-transparent relative">
+                            VLSI Design
+                            <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded opacity-60"></span>
+                        </span> & Launch Your Tech Career
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl">
+                        Join India's premier VLSI training institute and transform your career with industry-aligned programs, expert mentorship, and guaranteed placement support in top semiconductor companies.
+                    </p>
+                    
+                    <!-- Hero Features -->
+                    <div class="grid sm:grid-cols-2 gap-3 lg:gap-4 mt-8 lg:mt-12">
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 p-4 lg:p-5 bg-white/8 backdrop-blur-xl rounded-xl border border-white/15 hover:bg-white/12 hover:border-white/25 transition-all duration-300 group">
+                            <i class="fas fa-microchip text-secondary-light text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-white/90 font-medium text-sm lg:text-base">Industry-Standard Curriculum</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 p-4 lg:p-5 bg-white/8 backdrop-blur-xl rounded-xl border border-white/15 hover:bg-white/12 hover:border-white/25 transition-all duration-300 group">
+                            <i class="fas fa-users text-secondary-light text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-white/90 font-medium text-sm lg:text-base">Expert Industry Trainers</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 p-4 lg:p-5 bg-white/8 backdrop-blur-xl rounded-xl border border-white/15 hover:bg-white/12 hover:border-white/25 transition-all duration-300 group">
+                            <i class="fas fa-briefcase text-secondary-light text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-white/90 font-medium text-sm lg:text-base">100% Placement Support</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 p-4 lg:p-5 bg-white/8 backdrop-blur-xl rounded-xl border border-white/15 hover:bg-white/12 hover:border-white/25 transition-all duration-300 group">
+                            <i class="fas fa-project-diagram text-secondary-light text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-white/90 font-medium text-sm lg:text-base">Real Industry Projects</span>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 mt-8 lg:mt-12 justify-center lg:justify-start">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-base lg:text-lg rounded-full shadow-2xl hover:shadow-orange-500/25 hover:-translate-y-1 hover:scale-105 transition-all duration-300 uppercase tracking-wide min-w-[200px]">
+                            Start Your Journey
+                        </a>
+                        <a href="#courses" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white/80 text-white font-bold text-base lg:text-lg rounded-full backdrop-blur-xl hover:bg-white/10 hover:border-white hover:-translate-y-1 hover:scale-105 transition-all duration-300 uppercase tracking-wide min-w-[200px]">
+                            Explore Programs
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Stats -->
+                <div class="lg:col-span-2 mt-12 lg:mt-0">
+                    <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 lg:p-8 border border-white/10 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+                        
+                        <h3 class="font-poppins text-xl lg:text-2xl font-semibold text-white text-center mb-6 lg:mb-8">Our Success Story</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4 lg:gap-6">
+                            <div class="text-center p-4 lg:p-6 bg-white/8 rounded-2xl border border-white/15 hover:bg-white/12 hover:-translate-y-2 hover:scale-105 transition-all duration-300 group">
+                                <div class="text-3xl lg:text-4xl xl:text-5xl font-extrabold font-poppins bg-gradient-to-r from-secondary-light to-secondary bg-clip-text text-transparent mb-2">100%</div>
+                                <div class="text-white/85 text-xs lg:text-sm font-medium uppercase tracking-wider">Placement Rate</div>
+                            </div>
+                            <div class="text-center p-4 lg:p-6 bg-white/8 rounded-2xl border border-white/15 hover:bg-white/12 hover:-translate-y-2 hover:scale-105 transition-all duration-300 group">
+                                <div class="text-3xl lg:text-4xl xl:text-5xl font-extrabold font-poppins bg-gradient-to-r from-secondary-light to-secondary bg-clip-text text-transparent mb-2">500+</div>
+                                <div class="text-white/85 text-xs lg:text-sm font-medium uppercase tracking-wider">Students Placed</div>
+                            </div>
+                            <div class="text-center p-4 lg:p-6 bg-white/8 rounded-2xl border border-white/15 hover:bg-white/12 hover:-translate-y-2 hover:scale-105 transition-all duration-300 group">
+                                <div class="text-3xl lg:text-4xl xl:text-5xl font-extrabold font-poppins bg-gradient-to-r from-secondary-light to-secondary bg-clip-text text-transparent mb-2">50+</div>
+                                <div class="text-white/85 text-xs lg:text-sm font-medium uppercase tracking-wider">Partner Companies</div>
+                            </div>
+                            <div class="text-center p-4 lg:p-6 bg-white/8 rounded-2xl border border-white/15 hover:bg-white/12 hover:-translate-y-2 hover:scale-105 transition-all duration-300 group">
+                                <div class="text-3xl lg:text-4xl xl:text-5xl font-extrabold font-poppins bg-gradient-to-r from-secondary-light to-secondary bg-clip-text text-transparent mb-2">12 LPA</div>
+                                <div class="text-white/85 text-xs lg:text-sm font-medium uppercase tracking-wider">Average Package</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="about">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Excellence in Education</div>
+                <h2>Why Choose Bhavani VLSI Labs?</h2>
+                <p>We provide the perfect environment for your career growth in the VLSI industry with cutting-edge curriculum and industry partnerships</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>100% Placement Assistance</h3>
+                    <p>Our students have been successfully placed in top semiconductor companies with attractive packages.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Industry Expert Trainers</h3>
+                    <p>Learn from professionals with decades of experience in the VLSI industry.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Hands-on Training</h3>
+                    <p>Get practical experience with industry-standard tools and real-world projects.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Interview Preparation</h3>
+                    <p>Specialized training for technical interviews and aptitude tests.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Mock Interviews</h3>
+                    <p>Practice with simulated interviews conducted by industry experts to build confidence and improve performance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Live Project Implementation</h3>
+                    <p>Work on real industry projects to gain practical experience and enhance your portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director's Message Section -->
+    <section class="section director-message" id="director">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Leadership Vision</div>
+                <h2>Director's Message</h2>
+                <p>Inspiring excellence through innovative education and industry partnerships</p>
+            </div>
+            
+            <div class="director-container">
+                <div class="director-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nagaraju Ramavath - Director">
+                </div>
+                
+                <div class="director-content">
+                    <div class="director-quote">
+                        "Education is not just about imparting knowledge; it's about igniting passion and building futures."
+                    </div>
+                    
+                    <p>At Bhavani VLSI Labs, we believe that exceptional teachers create exceptional engineers. Our commitment goes beyond traditional education – we create immersive learning experiences that bridge the gap between academic theory and industry practice.</p>
+                    
+                    <p>With over two decades of experience in the semiconductor industry, I've witnessed the evolution of VLSI technology and the growing demand for skilled professionals. Our curriculum is meticulously designed to meet current industry standards while preparing students for future technological advances.</p>
+                    
+                    <p>We don't just train engineers; we mentor innovators, problem-solvers, and industry leaders who will shape the future of semiconductor technology.</p>
+                    
+                    <div class="director-signature">
+                        <div class="director-name">Mr. Nagaraju Ramavath</div>
+                        <div class="director-title">Director & Founder, Bhavani VLSI Labs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="section courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Professional Programs</div>
+                <h2>Our Courses</h2>
+                <p>Industry-aligned training programs designed by experts to accelerate your VLSI career</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-badge">Most Popular</div>
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>ASIC Design Verification</h3>
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i>
+                            16 Weeks Program
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">Master SystemVerilog, UVM, and advanced verification methodologies with hands-on projects using industry-standard tools.</p>
+                        
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> SystemVerilog & UVM Training</li>
+                            <li><i class="fas fa-check-circle"></i> Industry Standard Tools (Cadence, Synopsys)</li>
+                            <li><i class="fas fa-check-circle"></i> Real Project Experience</li>
+                            <li><i class="fas fa-check-circle"></i> Interview Preparation & Mock Tests</li>
+                        </ul>
+                        
+                        <div class="course-footer">
+                            <div class="price-section">
+                                <div class="price-label">Course Fee</div>
+                                <div class="price-tag">
+                                    <span class="currency">₹</span>85,000
+                                </div>
+                            </div>
+                            <a href="#contact" class="course-cta">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-badge">High Demand</div>
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Physical Design</h3>
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i>
+                            14 Weeks Program
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">Comprehensive training in floorplanning, placement, CTS, and routing with advanced timing closure techniques.</p>
+                        
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Complete PD Flow Training</li>
+                            <li><i class="fas fa-check-circle"></i> Timing Analysis & Closure</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Node Challenges (7nm/5nm)</li>
+                            <li><i class="fas fa-check-circle"></i> Industry Mentorship Program</li>
+                        </ul>
+                        
+                        <div class="course-footer">
+                            <div class="price-section">
+                                <div class="price-label">Course Fee</div>
+                                <div class="price-tag">
+                                    <span class="currency">₹</span>75,000
+                                </div>
+                            </div>
+                            <a href="#contact" class="course-cta">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-badge">Premium</div>
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Advanced VLSI Design</h3>
+                        <div class="course-duration">
+                            <i class="fas fa-clock"></i>
+                            18 Weeks Program
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">Master advanced VLSI concepts including low-power design, advanced verification, and emerging technologies.</p>
+                        
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Low Power Design Techniques</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Verification Methods</li>
+                            <li><i class="fas fa-check-circle"></i> Emerging Technology Trends</li>
+                            <li><i class="fas fa-check-circle"></i> Research Project Guidance</li>
+                        </ul>
+                        
+                        <div class="course-footer">
+                            <div class="price-section">
+                                <div class="price-label">Course Fee</div>
+                                <div class="price-tag">
+                                    <span class="currency">₹</span>95,000
+                                </div>
+                            </div>
+                            <a href="#contact" class="course-cta">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section class="section internship" id="internship">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Practical Learning</div>
+                <h2>VLSI Internship Programs</h2>
+                <p>Bridge the gap between theory and practice with our comprehensive internship programs designed for real-world industry experience</p>
+            </div>
+            
+            <div class="internship-container">
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div class="internship-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3>Foundation Internship</h3>
+                        <div class="internship-duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            4 Weeks Program
+                        </div>
+                    </div>
+                    <div class="internship-content">
+                        <p class="internship-description">Perfect for beginners to get hands-on experience with VLSI fundamentals and industry tools.</p>
+                        
+                        <ul class="internship-features">
+                            <li><i class="fas fa-check-circle"></i> Introduction to VLSI Design Flow & Methodologies</li>
+                            <li><i class="fas fa-check-circle"></i> Digital Logic Design Fundamentals</li>
+                            <li><i class="fas fa-check-circle"></i> Verilog HDL Programming & Simulation</li>
+                            <li><i class="fas fa-check-circle"></i> Basic Testbench Development</li>
+                            <li><i class="fas fa-check-circle"></i> Industry Tools Overview (Cadence/Synopsys)</li>
+                        </ul>
+                    </div>
+                    <div class="internship-footer">
+                        <div class="internship-price">
+                            <span class="currency">₹</span>15,000
+                        </div>
+                        <a href="#contact" class="internship-cta">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div class="internship-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Advanced Internship</h3>
+                        <div class="internship-duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            8 Weeks Program
+                        </div>
+                    </div>
+                    <div class="internship-content">
+                        <p class="internship-description">Comprehensive program covering advanced VLSI concepts with real project implementation.</p>
+                        
+                        <ul class="internship-features">
+                            <li><i class="fas fa-check-circle"></i> Advanced Digital Design & Verification</li>
+                            <li><i class="fas fa-check-circle"></i> SystemVerilog & UVM Methodology</li>
+                            <li><i class="fas fa-check-circle"></i> Physical Design Implementation Flow</li>
+                            <li><i class="fas fa-check-circle"></i> Timing Analysis & Optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Real Industry Project Implementation</li>
+                        </ul>
+                    </div>
+                    <div class="internship-footer">
+                        <div class="internship-price">
+                            <span class="currency">₹</span>25,000
+                        </div>
+                        <a href="#contact" class="internship-cta">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div class="internship-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Industry Ready Program</h3>
+                        <div class="internship-duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            12 Weeks Program
+                        </div>
+                    </div>
+                    <div class="internship-content">
+                        <p class="internship-description">Complete industry-ready program with mentorship, live projects, and placement assistance.</p>
+                        
+                        <ul class="internship-features">
+                            <li><i class="fas fa-check-circle"></i> Complete ASIC Design & Verification Flow</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Verification Techniques & Methodologies</li>
+                            <li><i class="fas fa-check-circle"></i> Industry Standard Tools & Processes</li>
+                            <li><i class="fas fa-check-circle"></i> Live Project with Industry Mentorship</li>
+                            <li><i class="fas fa-check-circle"></i> Interview Preparation & Placement Support</li>
+                        </ul>
+                    </div>
+                    <div class="internship-footer">
+                        <div class="internship-price">
+                            <span class="currency">₹</span>35,000
+                        </div>
+                        <a href="#contact" class="internship-cta">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="internship-highlight">
+                <h3>Why Choose Our Internship Programs?</h3>
+                <p>Get real industry experience with our comprehensive internship programs designed to make you job-ready</p>
+                
+                <div class="highlight-features">
+                    <div class="highlight-feature">
+                        <i class="fas fa-users"></i>
+                        <h4>Expert Mentorship</h4>
+                        <p>Learn from industry professionals with 15+ years experience</p>
+                    </div>
+                    <div class="highlight-feature">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Hands-on Projects</h4>
+                        <p>Work on real industry projects and build your portfolio</p>
+                    </div>
+                    <div class="highlight-feature">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Industry Certification</h4>
+                        <p>Get recognized certification valued by top companies</p>
+                    </div>
+                    <div class="highlight-feature">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Placement Support</h4>
+                        <p>Direct placement assistance with our partner companies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Section -->
+    <section class="section placement" id="placement">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Career Success</div>
+                <h2>Placement Excellence</h2>
+                <p>Transforming careers with industry-leading placement support and partnerships</p>
+            </div>
+            
+            <div class="placement-stats">
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <p>Placement Rate</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <p>Students Placed</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <p>Partner Companies</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12 LPA</div>
+                    <p>Average Package</p>
+                </div>
+            </div>
+
+            <div class="placement-highlights">
+                <h3>Why Our Students Get Hired</h3>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Industry Certification</h4>
+                        <p>Recognized certifications that employers value</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Direct Industry Connect</h4>
+                        <p>Strong partnerships with leading companies</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Interview Preparation</h4>
+                        <p>Comprehensive coaching and mock sessions</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>Real Projects</h4>
+                        <p>Hands-on experience with industry projects</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h3>Our Placement Partners</h3>
+                <p>Leading companies that trust our graduates</p>
+            </div>
+            
+            <div class="companies-scroll-container">
+                <div class="companies-scroll">
+                    <div class="company-item text-logo">
+                        <span class="company-name">Intel</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Qualcomm</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Broadcom</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD">
+                        <span>AMD</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg" alt="NVIDIA">
+                        <span>NVIDIA</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Synopsys</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Cadence</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg" alt="Siemens">
+                        <span>Siemens</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Marvell</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Xilinx</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Micron</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">MediaTek</span>
+                    </div>
+                    <!-- Duplicate set for seamless scrolling -->
+                    <div class="company-item text-logo">
+                        <span class="company-name">Intel</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Qualcomm</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Broadcom</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD">
+                        <span>AMD</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg" alt="NVIDIA">
+                        <span>NVIDIA</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Synopsys</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Cadence</span>
+                    </div>
+                    <div class="company-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg" alt="Siemens">
+                        <span>Siemens</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Marvell</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Xilinx</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">Micron</span>
+                    </div>
+                    <div class="company-item text-logo">
+                        <span class="company-name">MediaTek</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-subtitle">Connect With Us</div>
+                <h2>Ready to Transform Your Career?</h2>
+                <p>Take the first step towards becoming a VLSI expert. Our counselors are here to guide you.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address:</strong><br>
+                            Bhavani VLSI Labs<br>
+                            Hyderabad, Telangana, India
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +91 9876543210
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@bhavanivlsilabs.com
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Office Hours:</strong><br>
+                            Mon - Sat: 9:00 AM - 6:00 PM
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Start Your VLSI Journey</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">Interested Course</label>
+                            <select id="course" name="course">
+                                <option value="">Select a course</option>
+                                <option value="asic-verification">ASIC Design Verification</option>
+                                <option value="physical-design">Physical Design</option>
+                                <option value="advanced-vlsi">Advanced VLSI Design</option>
+                                <option value="internship">Internship Program</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Tell Us About Yourself *</label>
+                            <textarea id="message" name="message" required placeholder="Share your educational background, experience, and career goals in VLSI..."></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="cta-button">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bhavani VLSI Labs</h3>
+                    <p>Empowering the next generation of VLSI engineers with industry-relevant training and 100% placement assistance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#internship">Internships</a></li>
+                        <li><a href="#placement">Placements</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="#courses">ASIC Design Verification</a></li>
+                        <li><a href="#courses">Physical Design</a></li>
+                        <li><a href="#courses">Advanced VLSI Design</a></li>
+                        <li><a href="#internship">Internship Programs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana, India</p>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@bhavanivlsilabs.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bhavani VLSI Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>    <!-- 
+Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            const header = document.querySelector('header');
+            
+            // Mobile menu toggle functionality
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isOpen = !mobileMenu.classList.contains('-translate-x-full');
+                    
+                    if (isOpen) {
+                        // Close menu
+                        mobileMenu.classList.add('-translate-x-full');
+                        document.body.style.overflow = 'auto';
+                        // Reset hamburger animation
+                        const spans = mobileMenuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'rotate(0deg) translate(0, 0)';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'rotate(0deg) translate(0, 0)';
+                    } else {
+                        // Open menu
+                        mobileMenu.classList.remove('-translate-x-full');
+                        document.body.style.overflow = 'hidden';
+                        // Animate hamburger to X
+                        const spans = mobileMenuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'rotate(-45deg) translate(-2px, 3px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(45deg) translate(-2px, -3px)';
+                    }
+                });
+                
+                // Close menu when clicking on links
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('-translate-x-full');
+                        document.body.style.overflow = 'auto';
+                        // Reset hamburger animation
+                        const spans = mobileMenuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'rotate(0deg) translate(0, 0)';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'rotate(0deg) translate(0, 0)';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('-translate-x-full');
+                        document.body.style.overflow = 'auto';
+                        // Reset hamburger animation
+                        const spans = mobileMenuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'rotate(0deg) translate(0, 0)';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'rotate(0deg) translate(0, 0)';
+                    }
+                });
+            }
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('shadow-xl', 'bg-white/98');
+                    header.classList.remove('bg-white/95');
+                } else {
+                    header.classList.remove('shadow-xl', 'bg-white/98');
+                    header.classList.add('bg-white/95');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+        }
+        
+        /* Ensure body has proper padding for fixed header */
+        body {
+            padding-top: 4rem;
+        }
+        
+        @media (min-width: 1024px) {
+            body {
+                padding-top: 5rem;
+            }
+        }
+    </style>
